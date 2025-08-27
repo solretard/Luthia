@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUTHIA</title>
+<style>
+  /* Reset */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+  }
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 5%;
+    width: 100%;
+    max-width: 1200px;
+  }
+
+  header p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .cake {
+    display: flex;
+    gap: 20px;
+  }
+
+  .cake a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+  }
+
+  /* Main Hero Section */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    width: 90%;
+    margin: 40px auto;
+    padding: 60px;
+    box-shadow: 0 2px 5px rgb(132, 132, 132);
+    border-radius: 12px;
+    background: linear-gradient(135deg, #06489f, #fde8e8);
+    gap: 30px;
+  }
+
+  .character img {
+    max-width: 280px;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .content {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .content p {
+    margin: 1rem 0 2rem;
+    color: #444;
+    font-size: 1rem;
+  }
+
+  .buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover {
+    transform: translateY(-2px);
+  }
+
+  .btn-buy {
+    background: linear-gradient(135deg, #06489f, #fde8e8);
+    color: #fff;
+  }
+
+  .btn-community {
+    background: #007bff;
+    color: #fff;
+  }
+
+  /* Reusable Section */
+  .section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    border-radius: 16px;
+    padding: 60px;
+    margin: 40px auto;
+    max-width: 1200px;
+    width: 90%;
+    gap: 30px;
+  }
+
+  .section img {
+    max-width: 300px;
+    width: 100%;
+    border-radius: 12px;
+  }
+
+  .section-text {
+    flex: 1;
+    min-width: 280px;
+  }
+
+  .section-text h2 {
+    font-size: 2rem;
+    color: black;
+    margin-bottom: 15px;
+  }
+
+  .section-text p {
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+
+  .section button {
+    background: linear-gradient(90deg, #000, #444);
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* Backgrounds for different sections */
+  .bg-light-blue {
+    background: linear-gradient(135deg, #06489f, #fde8e8);
+  }
+
+  .bg-pink-blue {
+    background: linear-gradient(135deg, #06489f, #fde8e8);
+  }
+
+  /* Responsive Breakpoints */
+  @media (max-width: 992px) {
+    .content h1 {
+      font-size: 2rem;
+    }
+
+    .section-text h2 {
+      font-size: 1.8rem;
+    }
+
+    .container, .section {
+      padding: 40px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .cake {
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .container, .section {
+      text-align: center;
+    }
+
+    .buttons {
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content h1 {
+      font-size: 1.6rem;
+    }
+
+    .section-text h2 {
+      font-size: 1.4rem;
+    }
+
+    .btn, .section button {
+      width: 100%;
+    }
+  }
+
+    .containerr {
+    max-width: 1200px;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .heading {
+    margin-bottom: 40px;
+  }
+
+  .heading h1 {
+    font-size: 2.5rem;
+    color: #4b0082;
+    margin-bottom: 5px;
+  }
+
+  .heading p {
+    color: #555;
+    font-size: 1rem;
+    margin-top: 0;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  .card {
+    /* background-color: #333; */
+    color: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 250px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card h2 {
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
+  .card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+  }
+
+  .card ul li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  .card ul li::before {
+    content: '•';
+    color: #fff;
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+    position: absolute;
+    left: 0;
+  }
+
+  .card:nth-child(1) {
+    background-color: #3b5037;
+  }
+
+  .card:nth-child(2) {
+    background-color: #2b3929;
+  }
+
+  .card:nth-child(3) {
+    background-color: #2b3929;
+  }
+
+  .card:nth-child(4) {
+    background-color: #2ea664;
+  }
+
+  .card.swap {
+    background-color: #2ea664;
+  }
+
+  .card.swap ul li::before {
+    color: #fff;
+  }
+
+  .social-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.social-btn {
+background: linear-gradient(135deg, #06489f, #fde8e8);
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.social-btn:hover {
+background: linear-gradient(135deg, #06489f, #fde8e8);
+  transform: translateY(-3px);
+}
+
+  @media (max-width: 1024px) {
+    .cards-container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 80%;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .heading h1 {
+      font-size: 2rem;
+    }
+    .card {
+      width: 90%;
+    }
+  }
+
+</style>
+</head>
+<body>
+
+<header>
+  <p>$Luthia</p>
+  <div class="cake">
+    <a href="#">Charts</a>
+    <!-- <a href="#">How to Buy</a> -->
+    <a href="#">Buy</a>
+  </div>
+</header>
+
+<!-- Hero Section -->
+<div class="container">
+  <div class="character">
+    <img src="8.png" alt="AbsterLoo Character">
+  </div>
+  <div class="content">
+    <h1>Luthia</h1>
+    <p>Her name is Luthia, a figure 
+      of grace, wisdom, and quiet strength. While the king's reign is one of viral trends 
+      and bold proclamations, Luthia's influence is more subtle and profound. She 
+      represents stability, loyalty, and the unwavering support that turns a fleeting 
+      trend into an enduring legacy. Luthia is not just a companion; she is the foundation
+       upon which the empire is built, a token that embodies 
+      long-term value and steadfastness amidst the market's wild fluctuations.
+
+</p>
+    <div class="buttons">
+      <button class="btn btn-buy">Buy $LUTHIA</button>
+      <a style="
+      color: #000; text-decoration: none;
+      " href="https://t.me/Lu_thia"> <button class="btn btn-community">Join the community</a>
+    </div>
+  </div>
+</div>
+
+<!-- Section 2 -->
+<div class="section bg-light-blue">
+  <div>
+    <img src="7.png" alt="Loo's Mission">
+  </div>
+  <div class="section-text">
+    <h2>$Luthia's Mission</h2>
+    <p>Our mission is to serve as the silent strength behind the XRPL's most beloved memecoin. 
+      Luthia embodies grace and resilience, providing a beacon of stability for all who believe
+       in our long-term vision. We are the loyal consort, ensuring the strength and integrity
+        of the community for generations to come.
+    </p>
+    <a 
+    style="color: #000; text-decoration: none;"
+    href="https://x.com/lu_t_hia?s=21"><button>Visit LUTHIA</button></a>
+    
+  </div>
+</div>
+
+<!-- Section 3 -->
+<div class="section bg-pink-blue">
+  <div class="section-text">
+    <h2>Luthia's Role on XRPL Ledger</h2>
+    <p>
+      On the ledger, chaos rules until  Luthia rises. 
+      A fearless Queen, a beacon of positivity,
+       and the protector of our ledger. $LUTHIA isn’t just a token; it’s a movement.”
+    </p>
+    <button>Visit XRPL</button>
+  </div>
+  <div>
+    <img src="6.png" alt="Loo's Role">
+  </div>
+</div>
+
+<div class="containerr">
+  <div class="heading">
+    <h1>How to buy</h1>
+    <p>Join the family, No paper hands in the family, “Stay loyal, stay rich.”</p>
+  </div>
+  <div class="cards-container">
+    <div class="card" style="background-color: #022c58;">
+      <h2>Set up a wallet</h2>
+      <ul>
+        <li>Deploy a XRP compatible wallet to securely manage your assets</li>
+        <li>Securely store ypur seed phrase</li>
+      </ul>
+    </div>
+    <div class="card" Style="background-color: #022c58;">
+      <h2>GET XRP</h2>
+      <ul>
+        <li>Deposit XRP to your mainnet address</li>
+        <li>Maintain a reserve for gas fees and transaction costs</li>
+        <li>Verify transactions before confirming the swap/trade</li>
+      </ul>
+    </div>
+    <div class="card" Style="background-color: #022c58;">
+      <h2>Open Xrpl</h2>
+      <ul>
+        <li>Connect your wallet to first ledeger official platform</li>
+        <li>Ensure to set your slippage fees to the right percent</li>
+      </ul>
+    </div>
+    <div class="card swap" Style="background-color: #022c58;">
+      <h2>Swap for $Luthia</h2>
+      <ul>
+        <li>confirm the exact amount of XRP you wnat to trade</li>
+        <li>Input the contract address and set slippage to execute the swap</li>
+        <li></li>
+        <li>Verify the $Lutheia balance against official sources before transacting</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="social-links">
+  <a href="https://t.me/Lu_thia" target="_blank" class="social-btn">Telegram</a>
+  <a href="https://x.com/lu_t_hia?s=21" target="_blank" class="social-btn">Twitter</a>
+  <a href="https://firstledger.net/tokens" target="_blank" class="social-btn">XRPL</a>
+</div>
+</body>
+</html>
+
